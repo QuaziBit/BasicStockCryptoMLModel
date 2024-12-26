@@ -1,0 +1,14 @@
+# python version = 3.10.5
+# pip install -r requirements.txt
+# extra: pip install -U kaleido
+
+torch
+numpy
+pandas
+scikit-learn
+matplotlib
+statsmodels
+plotly
+tqdm
+scipy
+mplfinance
