@@ -1,0 +1,42 @@
+{
+    "BASE_REQUIRED_COLUMNS": [
+        "open",
+        "high",
+        "low",
+        "close"
+    ],
+    "BATCH_SIZE": 32,
+    "CRYPTO_BASE_PATH": "../../data/crypto",
+    "CRYPTO_SPECIFIC_COLUMNS": [
+        "marketcap"
+    ],
+    "DATA_PATH": "../../data/crypto\\bitcoin",
+    "DROPOUT_PROB": 0.4,
+    "EPOCHS": 64,
+    "FEATURE_COLUMNS": [],
+    "FILE_PATH": "C:\\Users\\alexm\\PProjects\\PythonProjects\\Python\\ai\\nn_demo\\project\\06_demo_trading\\data\\crypto\\bitcoin\\Bitcoin_ALL_7_13_2010-12_02_2024_historical_data_coinmarketcap.csv",
+    "FUTURE_STEPS": 700,
+    "HIDDEN_LAYER_SIZE": 400,
+    "INPUT_SIZE": 0,
+    "LEARNING_RATE": 0.001,
+    "MAX_SEQUENCE_VALUE": 1.0,
+    "MIN_SEQUENCE_VALUE": 0.0,
+    "OPTIONAL_COLUMNS": [
+        "volume"
+    ],
+    "RANDOM_SEED": 42,
+    "SCRIPT_TYPE": "Cryptocurrency",
+    "SCRIPT_VERSION": "24.7",
+    "SLEEP": 7,
+    "STOCK_BASE_PATH": "../../data/stocks",
+    "STOCK_DATA_FILENAME": "Bitcoin_ALL_7_13_2010-12_02_2024_historical_data_coinmarketcap.csv",
+    "STOCK_SPECIFIC_COLUMNS": [
+        "adj_close"
+    ],
+    "TICKER_NAME": "Bitcoin",
+    "TIME_STEP": 30,
+    "TRAIN_TEST_SPLIT": 0.8,
+    "USE_ATTENTION": false,
+    "USE_RAW_FEATURES_ONLY": true,
+    "USE_WALK_FORWARD_VALIDATION": false
+}

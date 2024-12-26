@@ -150,6 +150,18 @@ webencodings       0.5.1
 yfinance           0.2.50
 ```
 
+### Previews 
+
+#### Image 1 ![Description of Image 1](imgs/1.jpeg) 
+
+#### Image 2 ![Description of Image 2](imgs/2.jpeg) 
+
+#### Image 3 ![Description of Image 3](imgs/3.jpeg) 
+
+#### Image 4 ![Description of Image 4](imgs/4.jpeg) 
+
+#### Image 5 ![Description of Image 5](imgs/5.jpeg)
+
 ## Disclaimer
 
 This script is developed exclusively for educational and learning purposes. It is designed to demonstrate the principles of financial data analysis, machine learning, and data visualization.

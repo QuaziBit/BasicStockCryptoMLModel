@@ -1,0 +1,369 @@
+2024-12-26 12:59:37 - Cryptocurrency.BasicStock.Bitcoin - INFO - Initializing BasicStockModel for Bitcoin
+2024-12-26 12:59:37 - Cryptocurrency.BasicStock.Bitcoin - INFO - Model version: 24.7
+2024-12-26 12:59:37 - Cryptocurrency.BasicStock.Bitcoin - INFO - Charts directory: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\visualizations\charts\BasicStockModel
+2024-12-26 12:59:37 - Cryptocurrency.BasicStock.Bitcoin - INFO - Model parameters:
+2024-12-26 12:59:37 - Cryptocurrency.BasicStock.Bitcoin - INFO - Initial input size: 21
+2024-12-26 12:59:37 - Cryptocurrency.BasicStock.Bitcoin - INFO - Hidden layer size: 400
+2024-12-26 12:59:37 - Cryptocurrency.BasicStock.Bitcoin - INFO - Dropout probability: 0.4
+2024-12-26 12:59:37 - Cryptocurrency.BasicStock.Bitcoin - INFO - Use attention: False
+2024-12-26 12:59:37 - Cryptocurrency.BasicStock.Bitcoin - INFO - Time step: 30
+2024-12-26 12:59:37 - Cryptocurrency.BasicStock.Bitcoin - INFO - Epochs: 150
+2024-12-26 12:59:37 - Cryptocurrency.BasicStock.Bitcoin - INFO - Batch size: 64
+2024-12-26 12:59:37 - Cryptocurrency.BasicStock.Bitcoin - INFO - Learning rate: 0.0005
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Model initialized with input size: 21
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - BasicStockModel initialization completed successfully
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Loading data from: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\data\crypto\bitcoin\Bitcoin_ALL_7_13_2010-12_02_2024_historical_data_coinmarketcap.csv
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Detected data format: Cryptocurrency
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Using crypto raw features: ['Close', 'Volume', 'High', 'Low', 'Open', 'Marketcap']
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Initialized with raw features only
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Model weights path: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\models\BasicStockModel\lstm_ai_v24_7_daily_b_Bitcoin_crypto_h400_d04.pth
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Original columns in DataFrame: ['timeOpen', 'timeClose', 'timeHigh', 'timeLow', 'name', 'open', 'high', 'low', 'close', 'volume', 'marketCap', 'timestamp']
+
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Standardized columns in DataFrame: ['TimeOpen', 'TimeClose', 'TimeHigh', 'TimeLow', 'Name', 'Open', 'High', 'Low', 'Close', 'Volume', 'Marketcap', 'Timestamp']
+
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Using date column: TimeOpen
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Data format validation completed successfully
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Available Feature Sets:
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Base Raw Features: ['Close', 'Volume', 'High', 'Low', 'Open', 'Marketcap']
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Technical Features: ['Close', 'Volume', 'High', 'Low', 'Lag_1', 'Lag_2', 'Lag_5', 'Rolling_Mean_5', 'Rolling_Std_5', 'Volatility', 'MACD', 'Signal_Line', 'MACD_Histogram', '%K', '%D', 'Bollinger_Upper', 'Bollinger_Lower', 'RSI', 'Trend', 'Seasonal', 'Residual']
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Crypto Features: ['Market_Cap', 'Market_Cap_MA', 'Market_Cap_Std', 'Market_Cap_Change', 'Market_Cap_ROC', 'Price_to_MC_Ratio', 'Market_Cap_RSI']
+
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Using raw features only
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Feature Selection Summary:
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Total features selected: 6
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Selected features: ['Close', 'Volume', 'High', 'Low', 'Open', 'Marketcap']
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Current columns in dataframe: ['TimeClose', 'TimeHigh', 'TimeLow', 'Name', 'Open', 'High', 'Low', 'Close', 'Volume', 'Marketcap', 'Timestamp']
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Features array shape: (4876, 6)
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Features prepared and scaled. Shape: (4876, 6)
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Using features: ['Close', 'Volume', 'High', 'Low', 'Open', 'Marketcap']
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Creating sequences for training:
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Initial scaled data shape: (4876, 6)
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Time step: 30
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Sequence shapes - X: (4846, 30, 6), y: (4846,)
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Train-test split ratio: 0.8
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Train size: 3876, Test size: 970
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Training set shapes - X: (3876, 30, 6), y: (3876,)
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Test set shapes - X: (970, 30, 6), y: (970,)
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Tensor shapes:
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - X_train: torch.Size([3876, 30, 6])
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - y_train: torch.Size([3876, 1])
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - X_test: torch.Size([970, 30, 6])
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - y_test: torch.Size([970, 1])
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+DataLoader created with batch size: 64
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Number of batches: 61
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Final input size set to: 6
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Sequence creation completed successfully
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Model initialized with input size: 6
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - INFO - Data preparation completed successfully
+2024-12-26 12:59:39 - Cryptocurrency.BasicStock.Bitcoin - DEBUG - Generated model path: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\models\BasicStockModel\lstm_ai_v24_7_daily_b_Bitcoin_crypto_h.400_d.04_att.0_t.30_f.4876_raw_v.24.7_basic_model.pth
+2024-12-26 13:05:03 - Cryptocurrency.BasicStock.Bitcoin - DEBUG - Generated model path: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\models\BasicStockModel\lstm_ai_v24_7_daily_b_Bitcoin_crypto_h.400_d.04_att.0_t.30_f.4876_raw_v.24.7_basic_model.pth
+2024-12-26 13:05:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - Model saved successfully to: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\models\BasicStockModel\lstm_ai_v24_7_daily_b_Bitcoin_crypto_h.400_d.04_att.0_t.30_f.4876_raw_v.24.7_basic_model.pth
+2024-12-26 13:05:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - Model type: Cryptocurrency
+2024-12-26 13:05:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - Features count: 6
+2024-12-26 13:05:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - Crypto-specific features: []
+2024-12-26 13:05:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - Stored training data in checkpoint:
+2024-12-26 13:05:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - - Processed data shapes: X_train torch.Size([3876, 30, 6]), X_test torch.Size([970, 30, 6])
+2024-12-26 13:05:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - - Raw data shape: (4876, 1)
+2024-12-26 13:05:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - Starting prediction process...
+2024-12-26 13:05:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - X_train shape: torch.Size([3876, 30, 6])
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Train predictions shape: (3876, 1)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - X_test shape: torch.Size([970, 30, 6])
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Test predictions shape: (970, 1)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Predictions generated successfully.
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Starting inverse transformation of predictions...
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Transforming train predictions...
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Input data shape: (3876, 1)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Padded data shape: (3876, 6)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Inverted data shape: (3876,)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Train predictions rescaled shape: (3876,)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Transforming test predictions...
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Input data shape: (970, 1)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Padded data shape: (970, 6)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Inverted data shape: (970,)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Test predictions rescaled shape: (970,)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Transforming train prices...
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Input data shape: (3876, 1)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Padded data shape: (3876, 6)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Inverted data shape: (3876,)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Train prices rescaled shape: (3876,)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Transforming test prices...
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Input data shape: (970, 1)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Padded data shape: (970, 6)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Inverted data shape: (970,)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Test prices rescaled shape: (970,)
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Inverse transformation completed successfully.
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - INFO - Test index set. Length: 970
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - DEBUG - Initial array lengths:
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - DEBUG - Train size: 3876
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - DEBUG - Train prices rescaled: 3876
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - DEBUG - Train predictions rescaled: 3876
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - DEBUG - Test prices rescaled: 970
+2024-12-26 13:05:04 - Cryptocurrency.BasicStock.Bitcoin - DEBUG - Test predictions rescaled: 970
+2024-12-26 13:05:07 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved basic predictions to: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\predictions\Bitcoin_predictions_20241226_130504_basic.csv
+2024-12-26 13:05:07 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved basic predictions pickle to: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\predictions\Bitcoin_predictions_20241226_130504_basic.pkl
+2024-12-26 13:05:07 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved raw combined data to: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\predictions\Bitcoin_predictions_20241226_130504_raw_combined.csv
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved combined data with indicators to: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\predictions\Bitcoin_predictions_20241226_130504_combined.csv
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved configuration to: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\predictions\Bitcoin_predictions_20241226_130504_config.json
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Saved files summary:
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - - Basic predictions: Bitcoin_predictions_20241226_130504_basic.csv
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - - Raw combined data: Bitcoin_predictions_20241226_130504_raw_combined.csv
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - - Combined data with indicators: Bitcoin_predictions_20241226_130504_combined.csv
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - - Configuration: Bitcoin_predictions_20241226_130504_config.json
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - Predictions saved successfully.
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - ERROR - Error validating crypto predictions: 'NoneType' object has no attribute 'copy'
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+==================================================
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - =========== Model Performance Metrics ============
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - ==================================================
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Main Metrics:
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - MAE:                      1409.488931
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - MSE:                      3035750.592680
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - RMSE:                     1742.340550
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - R²:                         0.991990
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Additional Metrics:
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - MAE Percentage:           3.904948286764927
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - Direction Accuracy:           46.34%
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Error Statistics:
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - Error Std:                1265.708706
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - Max Error:                7141.130385
+2024-12-26 13:05:08 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+==================================================
+
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - Test set size: 970 days
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - Future predictions: 700 days
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+=== Debug: Available Columns ===
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - self.df columns:
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - ['TimeClose', 'TimeHigh', 'TimeLow', 'Name', 'Open', 'High', 'Low', 'Close', 'Volume', 'Marketcap', 'Timestamp']
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - df_with_indicators columns:
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - ['TimeClose', 'TimeHigh', 'TimeLow', 'Name', 'Open', 'High', 'Low', 'Close', 'Volume', 'Marketcap', 'Timestamp', 'Type', 'EMA_9', 'EMA_20', 'EMA_40', 'EMA_50', 'EMA_100', 'EMA_200', 'SMA_10', 'SMA_20', 'SMA_50', 'SMA_100', 'SMA_200', 'MACD_12_26_9_fast', 'MACD_12_26_9_slow', 'MACD_12_26_9', 'MACD_12_26_9_signal', 'MACD_12_26_9_hist', 'MACD_5_35_5_fast', 'MACD_5_35_5_slow', 'MACD_5_35_5', 'MACD_5_35_5_signal', 'MACD_5_35_5_hist', 'MACD_8_21_5_fast', 'MACD_8_21_5_slow', 'MACD_8_21_5', 'MACD_8_21_5_signal', 'MACD_8_21_5_hist', 'MACD', 'Signal_Line', 'MACD_Histogram', '%K_14', '%D_14', '%K_21', '%D_21', '%K', '%D', 'RSI_14', 'RSI_21', 'RSI', 'BB_Upper_20_2', 'BB_Lower_20_2', 'BB_SMA_20', 'BB_Upper_20_3', 'BB_Lower_20_3', 'BB_Upper', 'BB_Lower', 'Volume_SMA_20', 'Volume_SMA_50', 'Volume_ROC', 'ROC', 'Momentum', 'Williams_%R', 'Trend', 'Seasonal', 'Residual']
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - prediction_start_date: 2024-12-02 00:00:00+00:00
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - training_df columns:
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - ['TimeClose', 'TimeHigh', 'TimeLow', 'Name', 'Open', 'High', 'Low', 'Close', 'Volume', 'Marketcap', 'Timestamp', 'Type', 'EMA_9', 'EMA_20', 'EMA_40', 'EMA_50', 'EMA_100', 'EMA_200', 'SMA_10', 'SMA_20', 'SMA_50', 'SMA_100', 'SMA_200', 'MACD_12_26_9_fast', 'MACD_12_26_9_slow', 'MACD_12_26_9', 'MACD_12_26_9_signal', 'MACD_12_26_9_hist', 'MACD_5_35_5_fast', 'MACD_5_35_5_slow', 'MACD_5_35_5', 'MACD_5_35_5_signal', 'MACD_5_35_5_hist', 'MACD_8_21_5_fast', 'MACD_8_21_5_slow', 'MACD_8_21_5', 'MACD_8_21_5_signal', 'MACD_8_21_5_hist', 'MACD', 'Signal_Line', 'MACD_Histogram', '%K_14', '%D_14', '%K_21', '%D_21', '%K', '%D', 'RSI_14', 'RSI_21', 'RSI', 'BB_Upper_20_2', 'BB_Lower_20_2', 'BB_SMA_20', 'BB_Upper_20_3', 'BB_Lower_20_3', 'BB_Upper', 'BB_Lower', 'Volume_SMA_20', 'Volume_SMA_50', 'Volume_ROC', 'ROC', 'Momentum', 'Williams_%R', 'Trend', 'Seasonal', 'Residual']
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_real_df columns:
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - ['TimeClose', 'TimeHigh', 'TimeLow', 'Name', 'Open', 'High', 'Low', 'Close', 'Volume', 'Marketcap', 'Timestamp', 'Type', 'EMA_9', 'EMA_20', 'EMA_40', 'EMA_50', 'EMA_100', 'EMA_200', 'SMA_10', 'SMA_20', 'SMA_50', 'SMA_100', 'SMA_200', 'MACD_12_26_9_fast', 'MACD_12_26_9_slow', 'MACD_12_26_9', 'MACD_12_26_9_signal', 'MACD_12_26_9_hist', 'MACD_5_35_5_fast', 'MACD_5_35_5_slow', 'MACD_5_35_5', 'MACD_5_35_5_signal', 'MACD_5_35_5_hist', 'MACD_8_21_5_fast', 'MACD_8_21_5_slow', 'MACD_8_21_5', 'MACD_8_21_5_signal', 'MACD_8_21_5_hist', 'MACD', 'Signal_Line', 'MACD_Histogram', '%K_14', '%D_14', '%K_21', '%D_21', '%K', '%D', 'RSI_14', 'RSI_21', 'RSI', 'BB_Upper_20_2', 'BB_Lower_20_2', 'BB_SMA_20', 'BB_Upper_20_3', 'BB_Lower_20_3', 'BB_Upper', 'BB_Lower', 'Volume_SMA_20', 'Volume_SMA_50', 'Volume_ROC', 'ROC', 'Momentum', 'Williams_%R', 'Trend', 'Seasonal', 'Residual']
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_pred_df columns:
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - ['TimeClose', 'TimeHigh', 'TimeLow', 'Name', 'Open', 'High', 'Low', 'Close', 'Volume', 'Marketcap', 'Timestamp', 'Type', 'EMA_9', 'EMA_20', 'EMA_40', 'EMA_50', 'EMA_100', 'EMA_200', 'SMA_10', 'SMA_20', 'SMA_50', 'SMA_100', 'SMA_200', 'MACD_12_26_9_fast', 'MACD_12_26_9_slow', 'MACD_12_26_9', 'MACD_12_26_9_signal', 'MACD_12_26_9_hist', 'MACD_5_35_5_fast', 'MACD_5_35_5_slow', 'MACD_5_35_5', 'MACD_5_35_5_signal', 'MACD_5_35_5_hist', 'MACD_8_21_5_fast', 'MACD_8_21_5_slow', 'MACD_8_21_5', 'MACD_8_21_5_signal', 'MACD_8_21_5_hist', 'MACD', 'Signal_Line', 'MACD_Histogram', '%K_14', '%D_14', '%K_21', '%D_21', '%K', '%D', 'RSI_14', 'RSI_21', 'RSI', 'BB_Upper_20_2', 'BB_Lower_20_2', 'BB_SMA_20', 'BB_Upper_20_3', 'BB_Lower_20_3', 'BB_Upper', 'BB_Lower', 'Volume_SMA_20', 'Volume_SMA_50', 'Volume_ROC', 'ROC', 'Momentum', 'Williams_%R', 'Trend', 'Seasonal', 'Residual']
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - future_df columns:
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - ['TimeClose', 'TimeHigh', 'TimeLow', 'Name', 'Open', 'High', 'Low', 'Close', 'Volume', 'Marketcap', 'Timestamp', 'Type', 'EMA_9', 'EMA_20', 'EMA_40', 'EMA_50', 'EMA_100', 'EMA_200', 'SMA_10', 'SMA_20', 'SMA_50', 'SMA_100', 'SMA_200', 'MACD_12_26_9_fast', 'MACD_12_26_9_slow', 'MACD_12_26_9', 'MACD_12_26_9_signal', 'MACD_12_26_9_hist', 'MACD_5_35_5_fast', 'MACD_5_35_5_slow', 'MACD_5_35_5', 'MACD_5_35_5_signal', 'MACD_5_35_5_hist', 'MACD_8_21_5_fast', 'MACD_8_21_5_slow', 'MACD_8_21_5', 'MACD_8_21_5_signal', 'MACD_8_21_5_hist', 'MACD', 'Signal_Line', 'MACD_Histogram', '%K_14', '%D_14', '%K_21', '%D_21', '%K', '%D', 'RSI_14', 'RSI_21', 'RSI', 'BB_Upper_20_2', 'BB_Lower_20_2', 'BB_SMA_20', 'BB_Upper_20_3', 'BB_Lower_20_3', 'BB_Upper', 'BB_Lower', 'Volume_SMA_20', 'Volume_SMA_50', 'Volume_ROC', 'ROC', 'Momentum', 'Williams_%R', 'Trend', 'Seasonal', 'Residual']
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - === Debug: Sample Data ===
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - self.df Marketcap sample:
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - TimeOpen
+2010-07-15 00:00:00+00:00    195982.14
+2010-07-16 00:00:00+00:00    228047.42
+2010-07-17 00:00:00+00:00    226904.80
+2010-07-18 00:00:00+00:00    271669.20
+2010-07-19 00:00:00+00:00    256302.41
+Name: Marketcap, dtype: float64
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - df_with_indicators Marketcap sample:
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - Date
+2010-07-15 00:00:00+00:00    195982.14
+2010-07-16 00:00:00+00:00    228047.42
+2010-07-17 00:00:00+00:00    226904.80
+2010-07-18 00:00:00+00:00    271669.20
+2010-07-19 00:00:00+00:00    256302.41
+Name: Marketcap, dtype: float64
+2024-12-26 13:05:11 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Available metrics:
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mae: 346.53934552880173
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mse: 617325.1206935978
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_rmse: 785.7004013576662
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_r2: 0.9971897625491281
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mae: 1409.4889308813613
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mse: 3035750.5926798927
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_rmse: 1742.3405501450893
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_r2: 0.991989914875918
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mae_percentage: 3930.103652589806
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mae_percentage: 3.904948286764927
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mape: 3930.103652589806
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mape: 3.904948286764927
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_direction_accuracy: 50.50322580645161
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_direction_accuracy: 46.33642930856553
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_error_std: 779.1968590607784
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_error_max: 8353.44450411731
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_error_std: 1265.70870579903
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_error_max: 7141.130384642856
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+test_r2 value: 0.991989914875918
+
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - R² interpretation: Excellent
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_direction_accuracy value: 46.33642930856553
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mae_percentage value: 3.904948286764927
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - About to format metrics text
+2024-12-26 13:05:12 - Cryptocurrency.BasicStock.Bitcoin - INFO - Formatted metrics text: R²: 0.9920 (Excellent) • Direction: 46.34% (Poor) • MAE%: 3.90% (Fair) • RMSE: 1742.340550 • Error Std: 1265.708706
+
+2024-12-26 13:05:13 - Cryptocurrency.BasicStock.Bitcoin - ERROR - Try saving prediction_plot as figure:
+NoneType: None
+2024-12-26 13:05:14 - Cryptocurrency.BasicStock.Bitcoin - INFO - === _save_plot: Saved Plotly - advanced_prediction_plot - figure ===
+2024-12-26 13:05:16 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved Plotly figure as HTML: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\visualizations\charts\BasicStockModel\BasicStockModel\advanced_prediction_plot_20241226_130514.html
+2024-12-26 13:05:23 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+=== Starting _save_plot_data for combined_predictions ===
+2024-12-26 13:05:23 - Cryptocurrency.BasicStock.Bitcoin - INFO - Input data keys: ['df_with_indicators', 'training_df', 'test_real_df', 'test_pred_df', 'future_df', 'prediction_start_date', 'metadata']
+2024-12-26 13:05:23 - Cryptocurrency.BasicStock.Bitcoin - INFO - Directories created/verified: 
+- C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel
+- C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\visualizations\charts\BasicStockModel
+2024-12-26 13:05:23 - Cryptocurrency.BasicStock.Bitcoin - INFO - Generated timestamp: 20241226_130523
+2024-12-26 13:05:23 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved indicators data: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\combined_predictions_indicators_20241226_130523.csv
+2024-12-26 13:05:23 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved indicators pickle: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\combined_predictions_indicators_20241226_130523.pkl
+2024-12-26 13:05:23 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved training data: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\combined_predictions_training_20241226_130523.csv
+2024-12-26 13:05:23 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved training pickle: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\combined_predictions_training_20241226_130523.pkl
+2024-12-26 13:05:23 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved test_real data: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\combined_predictions_test_real_20241226_130523.csv
+2024-12-26 13:05:23 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved test_real pickle: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\combined_predictions_test_real_20241226_130523.pkl
+2024-12-26 13:05:23 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved test_pred data: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\combined_predictions_test_pred_20241226_130523.csv
+2024-12-26 13:05:23 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved test_pred pickle: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\combined_predictions_test_pred_20241226_130523.pkl
+2024-12-26 13:05:24 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved future data: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\combined_predictions_future_20241226_130523.csv
+2024-12-26 13:05:24 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved future pickle: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\combined_predictions_future_20241226_130523.pkl
+2024-12-26 13:05:24 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved metadata: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\combined_predictions_metadata_20241226_130523.json
+2024-12-26 13:05:24 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved plot data: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\combined_predictions_20241226_130523.csv
+2024-12-26 13:05:24 - Cryptocurrency.BasicStock.Bitcoin - INFO - Attempting to display interactive plot...
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - Plot displayed successfully
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Available metrics:
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mae: 346.53934552880173
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mse: 617325.1206935978
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_rmse: 785.7004013576662
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_r2: 0.9971897625491281
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mae: 1409.4889308813613
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mse: 3035750.5926798927
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_rmse: 1742.3405501450893
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_r2: 0.991989914875918
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mae_percentage: 3930.103652589806
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mae_percentage: 3.904948286764927
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mape: 3930.103652589806
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mape: 3.904948286764927
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_direction_accuracy: 50.50322580645161
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_direction_accuracy: 46.33642930856553
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_error_std: 779.1968590607784
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_error_max: 8353.44450411731
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_error_std: 1265.70870579903
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_error_max: 7141.130384642856
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - === _save_plot: Saved Plotly - plot_residuals - figure ===
+2024-12-26 13:05:26 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved Plotly figure as HTML: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\visualizations\charts\BasicStockModel\BasicStockModel\plot_residuals_20241226_130526.html
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+=== Starting _save_plot_data for residuals ===
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - Input data keys: ['train_dates', 'test_dates', 'train_residuals', 'test_residuals', 'metadata']
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - Directories created/verified: 
+- C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel
+- C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\visualizations\charts\BasicStockModel
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - Generated timestamp: 20241226_130533
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved plot data: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\residuals_20241226_130533.csv
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Available metrics:
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mae: 346.53934552880173
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mse: 617325.1206935978
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_rmse: 785.7004013576662
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_r2: 0.9971897625491281
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mae: 1409.4889308813613
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mse: 3035750.5926798927
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_rmse: 1742.3405501450893
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_r2: 0.991989914875918
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mae_percentage: 3930.103652589806
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mae_percentage: 3.904948286764927
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mape: 3930.103652589806
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mape: 3.904948286764927
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_direction_accuracy: 50.50322580645161
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_direction_accuracy: 46.33642930856553
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_error_std: 779.1968590607784
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_error_max: 8353.44450411731
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_error_std: 1265.70870579903
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_error_max: 7141.130384642856
+2024-12-26 13:05:33 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+
+2024-12-26 13:05:34 - Cryptocurrency.BasicStock.Bitcoin - INFO - === _save_plot: Saved Plotly - residuals_diagnostics - figure ===
+2024-12-26 13:05:34 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved Plotly figure as HTML: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\visualizations\charts\BasicStockModel\BasicStockModel\residuals_diagnostics_20241226_130534.html
+2024-12-26 13:05:41 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+=== Starting _save_plot_data for residuals_diagnostics ===
+2024-12-26 13:05:41 - Cryptocurrency.BasicStock.Bitcoin - INFO - Input data keys: ['train_residuals', 'test_residuals', 'statistics']
+2024-12-26 13:05:41 - Cryptocurrency.BasicStock.Bitcoin - INFO - Directories created/verified: 
+- C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel
+- C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\visualizations\charts\BasicStockModel
+2024-12-26 13:05:41 - Cryptocurrency.BasicStock.Bitcoin - INFO - Generated timestamp: 20241226_130541
+2024-12-26 13:05:41 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved residuals diagnostics statistics: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\residuals_diagnostics_stats_20241226_130541.json
+2024-12-26 13:05:41 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved plot data: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\residuals_diagnostics_20241226_130541.csv
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Available columns in df_with_indicators:
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - Columns: ['TimeClose', 'TimeHigh', 'TimeLow', 'Name', 'Open', 'High', 'Low', 'Close', 'Volume', 'Marketcap', 'Timestamp', 'Type', 'EMA_9', 'EMA_20', 'EMA_40', 'EMA_50', 'EMA_100', 'EMA_200', 'SMA_10', 'SMA_20', 'SMA_50', 'SMA_100', 'SMA_200', 'MACD_12_26_9_fast', 'MACD_12_26_9_slow', 'MACD_12_26_9', 'MACD_12_26_9_signal', 'MACD_12_26_9_hist', 'MACD_5_35_5_fast', 'MACD_5_35_5_slow', 'MACD_5_35_5', 'MACD_5_35_5_signal', 'MACD_5_35_5_hist', 'MACD_8_21_5_fast', 'MACD_8_21_5_slow', 'MACD_8_21_5', 'MACD_8_21_5_signal', 'MACD_8_21_5_hist', 'MACD', 'Signal_Line', 'MACD_Histogram', '%K_14', '%D_14', '%K_21', '%D_21', '%K', '%D', 'RSI_14', 'RSI_21', 'RSI', 'BB_Upper_20_2', 'BB_Lower_20_2', 'BB_SMA_20', 'BB_Upper_20_3', 'BB_Lower_20_3', 'BB_Upper', 'BB_Lower', 'Volume_SMA_20', 'Volume_SMA_50', 'Volume_ROC', 'ROC', 'Momentum', 'Williams_%R', 'Trend', 'Seasonal', 'Residual', 'Daily_Trend', 'Weekly_Trend']
+
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Available metrics:
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mae: 346.53934552880173
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mse: 617325.1206935978
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_rmse: 785.7004013576662
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_r2: 0.9971897625491281
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mae: 1409.4889308813613
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mse: 3035750.5926798927
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_rmse: 1742.3405501450893
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_r2: 0.991989914875918
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mae_percentage: 3930.103652589806
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mae_percentage: 3.904948286764927
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mape: 3930.103652589806
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mape: 3.904948286764927
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_direction_accuracy: 50.50322580645161
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_direction_accuracy: 46.33642930856553
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_error_std: 779.1968590607784
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_error_max: 8353.44450411731
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_error_std: 1265.70870579903
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_error_max: 7141.130384642856
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+
+2024-12-26 13:05:51 - Cryptocurrency.BasicStock.Bitcoin - INFO - === _save_plot: Saved Plotly - detailed_analysis - figure ===
+2024-12-26 13:05:52 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved Plotly figure as HTML: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\visualizations\charts\BasicStockModel\BasicStockModel\detailed_analysis_20241226_130551.html
+2024-12-26 13:05:59 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+=== Starting _save_plot_data for detailed_analysis ===
+2024-12-26 13:05:59 - Cryptocurrency.BasicStock.Bitcoin - INFO - Input data keys: ['prices', 'volume', 'macd', 'signal_line', 'macd_histogram', 'stochastic_k', 'stochastic_d', 'metrics']
+2024-12-26 13:05:59 - Cryptocurrency.BasicStock.Bitcoin - INFO - Directories created/verified: 
+- C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel
+- C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\visualizations\charts\BasicStockModel
+2024-12-26 13:05:59 - Cryptocurrency.BasicStock.Bitcoin - INFO - Generated timestamp: 20241226_130559
+2024-12-26 13:05:59 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved plot data: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\data\BasicStockModel\detailed_analysis_20241226_130559.csv
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+Available metrics:
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mae: 346.53934552880173
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mse: 617325.1206935978
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_rmse: 785.7004013576662
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_r2: 0.9971897625491281
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mae: 1409.4889308813613
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mse: 3035750.5926798927
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_rmse: 1742.3405501450893
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_r2: 0.991989914875918
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mae_percentage: 3930.103652589806
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mae_percentage: 3.904948286764927
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_mape: 3930.103652589806
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mape: 3.904948286764927
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_direction_accuracy: 50.50322580645161
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_direction_accuracy: 46.33642930856553
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_error_std: 779.1968590607784
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - train_error_max: 8353.44450411731
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_error_std: 1265.70870579903
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_error_max: 7141.130384642856
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - 
+test_r2 value: 0.991989914875918
+
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - R² interpretation: Excellent
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_direction_accuracy value: 46.33642930856553
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - test_mae_percentage value: 3.904948286764927
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - About to format metrics text
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - Formatted metrics text: R²: 0.9920 (Excellent) • Direction: 46.34% (Poor) • MAE%: 3.90% (Fair) • RMSE: 1742.340550 • Error Std: 1265.708706
+
+2024-12-26 13:06:03 - Cryptocurrency.BasicStock.Bitcoin - INFO - Saved crypto analysis plot to: C:\Users\alexm\PProjects\PythonProjects\Python\ai\nn_demo\project\06_demo_trading\LSTM\v24_b\lstm_ai_v24_7_daily_b\Bitcoin\visualizations\charts\BasicStockModel\crypto_analysis_Bitcoin_20241226_130603.html
