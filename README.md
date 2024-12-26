@@ -48,7 +48,9 @@ This script is a powerful, configurable framework designed to analyze stock and 
 
 ### Data:
 - Stock CSV File: [Yahoo Finance](https://finance.yahoo.com/)
+- You can run ```get_yfinance_data_v7.py``` if you need Stock data.
 - Cryptocurrency CSV File: [CoinMarketCap](https://coinmarketcap.com/)
+- Current I do not have a script to grab Crypto data
 
 ### Required File Formats:
 - **Stock CSV File**:
