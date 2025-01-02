@@ -1,6 +1,4 @@
 """
-Author: QuaziBit
-
 Advanced LSTM Cryptocurrency Price Prediction System
 Version: 24.7
 """
@@ -126,11 +124,11 @@ class Config:
     FILE_PATH = ""
     
     # Data paths
-    CRYPTO_BASE_PATH = "../../data/crypto"
-    STOCK_BASE_PATH = "../../data/stocks"
+    CRYPTO_BASE_PATH = "/app/data/crypto"
+    STOCK_BASE_PATH = "/app/data/stocks"
     
     # Default data configuration (fallback values)
-    DATA_PATH = "../../data/crypto/shiba"
+    DATA_PATH = "/app/data/crypto/shiba"
     STOCK_DATA_FILENAME = 'Shiba_6_18_2022_10_28_2024.csv'
     
     # Define required column types for validation
@@ -149,14 +147,14 @@ class Config:
     
     USE_WALK_FORWARD_VALIDATION = False
     
-    HIDDEN_LAYER_SIZE = 200  # Reduced from 400
+    HIDDEN_LAYER_SIZE = 75  # Reduced from 400
     DROPOUT_PROB = 0.4      # Increased from 0.4
     USE_ATTENTION = False
     TIME_STEP = 30
     FUTURE_STEPS = 30       # Reduced from 90 for better accuracy
-    BATCH_SIZE = 32         # Reduced from 64
+    BATCH_SIZE = 64         # Reduced from 96
     LEARNING_RATE = 0.001
-    EPOCHS = 64
+    EPOCHS = 75
     TRAIN_TEST_SPLIT = 0.8
     RANDOM_SEED = 42
     
@@ -7230,9 +7228,9 @@ def setup_basic_stock_model() -> bool:
             
             Config.RANDOM_SEED = int(input(f"Random seed (default {Config.RANDOM_SEED}): ") or Config.RANDOM_SEED)
 
-            epochs = int(input("\nEnter number of epochs (default 150): ") or 150)
-            batch_size = int(input("Enter batch size (default 64): ") or 64)
-            learning_rate = float(input("Enter learning rate (default 0.001): ") or 0.001)
+            epochs = int(input(f"\nEnter number of epochs (default {Config.EPOCHS}): ") or Config.EPOCHS)
+            batch_size = int(input(f"fEnter batch size (default {Config.BATCH_SIZE}): ") or Config.BATCH_SIZE)
+            learning_rate = float(input(f"Enter learning rate (default {Config.LEARNING_RATE}): ") or Config.LEARNING_RATE)
         else:
             # Use default values when loading existing model
             epochs, batch_size, learning_rate = Config.EPOCHS, Config.BATCH_SIZE, Config.LEARNING_RATE

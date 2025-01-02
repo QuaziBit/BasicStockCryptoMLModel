@@ -38,9 +38,75 @@ This script is a powerful, configurable framework designed to analyze stock and 
 ### Future Predictions:
 - Predicts future price trends for configurable time steps with advanced plotting of error bands and detailed analysis.
 
-### Feature Development:
-- **Docker Support**: Future plans include providing a Docker setup to simplify environment configuration and deployment.
-- **Web Interface**: Plans to integrate a web-based UI for easier interaction, visualization, and analysis.
+
+# Docker Setup and Usage for Machine Learning Stock and Cryptocurrency Analysis Script
+
+## Docker Instructions
+
+### Prerequisites
+Ensure you have Docker installed on your system. You can download Docker from [Docker's official website](https://www.docker.com/).
+
+### Build the Docker Image
+To build the Docker image, navigate to the directory containing your Dockerfile and run:
+
+```bash
+# Rebuild the Docker Image
+$ docker build -t lstm-crypt-stocks .
+```
+
+### Running the Docker Container
+
+#### 1. Default Output to Current Directory
+To run the Docker container and save the output to the same folder where the Docker script is being executed:
+
+**Windows (PowerShell):**
+```bash
+$ docker run -it --name lstm-container -v ${PWD}:/host/root lstm-crypt-stocks lstm
+```
+
+**Linux/Mac:**
+```bash
+$ docker run -it --name lstm-container -v $(pwd):/host/root lstm-crypt-stocks lstm
+```
+
+#### 2. Save Output to Desktop
+If you want to save the output to the Desktop:
+
+**Windows (PowerShell):**
+```bash
+$ docker run -it --name lstm-container -v C:\Users\<username>\Desktop:/host/desktop lstm-crypt-stocks lstm
+```
+
+**Linux/Mac:**
+```bash
+$ docker run -it --name lstm-container -v ~/Desktop:/host/desktop lstm-crypt-stocks lstm
+```
+
+### Reusing the Docker Container
+Instead of creating a new container each time, you can reuse an existing container:
+
+```bash
+# Restart and attach to the existing container
+$ docker start -ai lstm-container
+```
+
+### Removing the Docker Container
+If you need to remove the container:
+
+#### 1. List All Containers
+```bash
+$ docker ps -a
+```
+
+#### 2. Remove a Specific Container by Name
+```bash
+$ docker rm lstm-container
+```
+
+#### 3. Remove All Stopped Containers (Optional)
+```bash
+$ docker container prune -f
+```
 
 ### Data Directory Structure:
 - Stock data is expected in the directory: `/data/stocks/<stock_name>/<file_name>.csv`
@@ -48,9 +114,7 @@ This script is a powerful, configurable framework designed to analyze stock and 
 
 ### Data:
 - Stock CSV File: [Yahoo Finance](https://finance.yahoo.com/)
-- You can run ```get_yfinance_data_v7.py``` if you need Stock data.
 - Cryptocurrency CSV File: [CoinMarketCap](https://coinmarketcap.com/)
-- Current I do not have a script to grab Crypto data
 
 ### Required File Formats:
 - **Stock CSV File**:
@@ -62,11 +126,18 @@ This script is a powerful, configurable framework designed to analyze stock and 
   timeOpen;timeClose;timeHigh;timeLow;name;open;high;low;close;volume;marketCap;timestamp
   ```
 
-## How to Run the Script
+## How to Run the Script - you don't need Docker
 
 ### Prerequisites
 1. Install Python 3.10.5.
-2. Install the required dependencies by running the following command:
+2. Init venv: ```py -3 -m venv project_name``` or ```py -3.x -m venv project_name```
+3. Navigate to your folder Scripts and type in the terminal:
+   1. .\Scripts\Activate.ps1
+   2. or ```deactivate``` if you wanna stop venv
+   3. If cannot run from PowerShell
+      1. ```Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass;``` 
+      2. ```.\Scripts\Activate.ps1```
+4. Install the required dependencies by running the following command:
    ```bash
    pip install -r requirements.txt
    ```
@@ -86,6 +157,11 @@ python .\lstm_ai_v24_7_daily_b.py
   - **Metrics Reports**: CSV files summarizing performance metrics.
 
 Ensure that the script has appropriate permissions to create directories and write files in its directory.
+
+### Important Notes
+- **Default Output Location:** By default, the script saves outputs in the root directory where the Docker container is run.
+- **Persisting Data:** Reuse the Docker container (`docker start -ai lstm-container`) to retain models and data generated in `/app/LSTM/v24_b/lstm_ai_v24_7_daily_b`.
+- **Updating Data:** To update cryptocurrency or stock data, rebuild the Docker image with the latest data or remove and rebuild the container to create a fresh instance.
 
 ## Dependencies
 
@@ -150,17 +226,13 @@ webencodings       0.5.1
 yfinance           0.2.50
 ```
 
-### Previews 
+### Future Enhancements
+Future updates will aim to:
+1. Improve Docker automation for easier handling of data updates.
+2. Provide advanced configurations for output management directly within the Docker container.
 
-#### Image 1 ![Description of Image 1](imgs/1.jpeg) 
-
-#### Image 2 ![Description of Image 2](imgs/2.jpeg) 
-
-#### Image 3 ![Description of Image 3](imgs/3.jpeg) 
-
-#### Image 4 ![Description of Image 4](imgs/4.jpeg) 
-
-#### Image 5 ![Description of Image 5](imgs/5.jpeg)
+### Feature Development:
+- **Web Interface**: Plans to integrate a web-based UI for easier interaction, visualization, and analysis.
 
 ## Disclaimer
 

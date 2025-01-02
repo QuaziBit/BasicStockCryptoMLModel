@@ -3,10 +3,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-# Set stock symbol
-# WMT. DLTR, FBLG, INFN, NINE, NVDA, RIG
-stock_symbol = 'RIG'  # Replace with your stock symbol
-
 def is_valid_stock(symbol):
     try:
         ticker = yf.Ticker(symbol)
@@ -40,6 +36,10 @@ def download_stock_data(symbol, start_date, end_date, intervals=['1d', '1wk', '1
             return data, interval
         print(f"Data not found with interval: {interval}, trying next option...")
     return None, None
+
+# Set stock symbol
+# WMT. DLTR, FBLG, INFN, NINE, NVDA, RIG
+stock_symbol = 'RIG'  # Replace with your stock symbol
 
 # Step 1: Validate the stock symbol
 if is_valid_stock(stock_symbol):
