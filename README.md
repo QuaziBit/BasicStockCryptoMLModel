@@ -247,3 +247,19 @@ This script is developed exclusively for educational and learning purposes. It i
 The complexities of financial markets and the limitations of machine learning models necessitate caution. This script is a learning tool and should not be relied upon for actual trading purposes.
 
 If you choose to use or modify this script, it is your responsibility to ensure compliance with applicable regulations and to seek advice from licensed financial professionals. The author disclaims any liability for losses or damages incurred through the use of this script.
+
+## Example Output
+### Price Prediction Analysis
+![Price Prediction Analysis](imgs/1.jpeg)
+
+### Price Prediction Analysis
+![Price Prediction Analysis](imgs/2.jpeg)
+
+### Residual Over Time
+![Residual Over Time](imgs/3.jpeg)
+
+### Residual Diagnostics
+![Residual Diagnostics](imgs/4.jpeg)
+
+### Price vs Prediction
+![Price vs Prediction](imgs/5.jpeg)
