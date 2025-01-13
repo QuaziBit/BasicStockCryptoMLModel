@@ -45,8 +45,46 @@ def set_ticker_name() -> str:
     ticker_name = os.path.splitext(Config.STOCK_DATA_FILENAME)[0].split('_')[0]
     Config.TICKER_NAME = ticker_name
 
+def get_base_paths():
+    """
+    Resolve base paths dynamically based on HOST_MODEL_DIR.
+    If HOST_MODEL_DIR is not set, use "../../data".
+    """
+    host_model_dir = os.getenv("HOST_MODEL_DIR", None)
+    if host_model_dir:
+        base_path = os.path.abspath(host_model_dir)  # Use the host directory
+    else:
+        base_path = os.path.abspath("../../data")  # Default to local data paths
+
+    print(f"\nConfig - host_model_dir: {host_model_dir} - base_path: {base_path}\n")
+
+    return {
+        "crypto_base_path": os.path.join(base_path, "crypto"),
+        "stock_base_path": os.path.join(base_path, "stocks"),
+        "default_crypto_data": os.path.join(base_path, "crypto", "shiba"),
+    }
+
+def get_model_path():
+    """
+    Resolve the model directory path dynamically based on HOST_MODEL_PATH.
+    If HOST_MODEL_PATH is not set, fall back to the default path inside the container.
+    """
+    host_model_path = os.getenv("HOST_MODEL_PATH", None)
+    if host_model_path:
+        return os.path.abspath(host_model_path)  # Use absolute path from environment
+    else:
+        return None
+
 def get_script_based_dir() -> str:
     """Get directory path based on current script name and cryptocurrency"""
+
+    model_path = get_model_path()
+
+    # Check if a custom MODEL_PATH is defined in Config
+    host_model_path = os.getenv("HOST_MODEL_PATH", None)
+    if host_model_path:
+        model_path = os.path.abspath(host_model_path)  # Use absolute path from environment
+
     # Get current script name without extension
     current_script = os.path.splitext(os.path.basename(__file__))[0]
     
@@ -54,8 +92,15 @@ def get_script_based_dir() -> str:
     crypto_name = os.path.splitext(Config.STOCK_DATA_FILENAME)[0].split('_')[0]
     
     # Create root directory with script name and crypto
-    root_dir = os.path.join(os.path.dirname(__file__), current_script, crypto_name)
+    # root_dir = os.path.join(os.path.dirname(__file__), current_script, crypto_name)
     
+    # If MODEL_PATH is defined, use it as the root directory
+    if model_path:
+        root_dir = os.path.join(model_path, current_script, crypto_name)
+    else:
+        # Default root directory based on script location
+        root_dir = os.path.join(os.path.dirname(__file__), current_script, crypto_name)
+
     # Create standard subdirectories
     subdirs = {
         'visualizations': ['charts', 'logs'],  # Removed 'models' from here
@@ -123,12 +168,28 @@ class Config:
     
     FILE_PATH = ""
     
+    # Data paths - if using docker
+    # CRYPTO_BASE_PATH = "/app/data/crypto"
+    # STOCK_BASE_PATH = "/app/data/stocks"
+    # DATA_PATH = "/app/data/crypto/shiba"
+
+    MODEL_PATH = get_model_path()
+    BASE_PATHS = get_base_paths()
+
+    # Data paths - if NOT using docker
+    # CRYPTO_BASE_PATH = "../../data/crypto"
+    CRYPTO_BASE_PATH = BASE_PATHS["crypto_base_path"]
+
+    # Data paths - if NOT using docker
+    # STOCK_BASE_PATH = "../../data/stocks"
+    STOCK_BASE_PATH = BASE_PATHS["stock_base_path"]
+
+    # DATA_PATH = "../../data/crypto/shiba"
+    # Data paths - if NOT using docker
+    DATA_PATH = BASE_PATHS["default_crypto_data"]
+
     # Data paths
-    CRYPTO_BASE_PATH = "/app/data/crypto"
-    STOCK_BASE_PATH = "/app/data/stocks"
-    
     # Default data configuration (fallback values)
-    DATA_PATH = "/app/data/crypto/shiba"
     STOCK_DATA_FILENAME = 'Shiba_6_18_2022_10_28_2024.csv'
     
     # Define required column types for validation
@@ -161,6 +222,16 @@ class Config:
     # Validation thresholds
     MAX_SEQUENCE_VALUE = 1.0  # Maximum allowed value in normalized sequences
     MIN_SEQUENCE_VALUE = 0.0  # Minimum allowed value in normalized sequences
+
+    @classmethod
+    def log_paths(cls):
+        """
+        Log the currently resolved paths for debugging purposes.
+        """
+        logger.info(f"\nCRYPTO_BASE_PATH: {cls.CRYPTO_BASE_PATH}")
+        logger.info(f"STOCK_BASE_PATH: {cls.STOCK_BASE_PATH}")
+        logger.info(f"DATA_PATH: {cls.DATA_PATH}")
+        logger.info(f"MODEL_PATH: {cls.MODEL_PATH}\n")
 
     # Add directory paths
     @classmethod
@@ -7360,6 +7431,9 @@ def main():
         # Initial seed setting
         set_global_seeds()
         
+        # If not using docker comment it out
+        Config.log_paths()
+
         # Select data type and update configuration
         Config.select_data_type()
               

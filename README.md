@@ -61,25 +61,17 @@ To run the Docker container and save the output to the same folder where the Doc
 
 **Windows (PowerShell):**
 ```bash
-$ docker run -it --name lstm-container -v ${PWD}:/host/root lstm-crypt-stocks lstm
+$ docker run -it --name lstm-container -v ${PWD}:/host/root -e HOST_MODEL_DIR="/host/root/data" -e HOST_MODEL_PATH="/host/root/LSTM/v24_b/" lstm-crypt-stocks lstm
 ```
 
 **Linux/Mac:**
 ```bash
-$ docker run -it --name lstm-container -v $(pwd):/host/root lstm-crypt-stocks lstm
+$ docker run -it --name lstm-container -v $(pwd):/host/root -e HOST_MODEL_DIR="/host/root/data" -e HOST_MODEL_PATH="/host/root/LSTM/v24_b/" lstm-crypt-stocks lstm
 ```
 
-#### 2. Save Output to Desktop
-If you want to save the output to the Desktop:
-
-**Windows (PowerShell):**
-```bash
-$ docker run -it --name lstm-container -v C:\Users\<username>\Desktop:/host/desktop lstm-crypt-stocks lstm
+### Actual output should location
 ```
-
-**Linux/Mac:**
-```bash
-$ docker run -it --name lstm-container -v ~/Desktop:/host/desktop lstm-crypt-stocks lstm
+/LSTM/v24_b/<script_name>
 ```
 
 ### Reusing the Docker Container
@@ -111,6 +103,9 @@ $ docker container prune -f
 ### Data Directory Structure:
 - Stock data is expected in the directory: `/data/stocks/<stock_name>/<file_name>.csv`
 - Cryptocurrency data is expected in the directory: `/data/crypto/<crypto_name>/<file_name>.csv`
+
+### Model location:
+- directory: `/LSTM/v24_b/<script_name>/<stock_name>/BasicStockModel/model`
 
 ### Data:
 - Stock CSV File: [Yahoo Finance](https://finance.yahoo.com/)

@@ -62,46 +62,46 @@ if [ $? -ne 0 ]; then
 fi
 
 # Determine the output directory
-if [ "$1" == "lstm" ]; then
-    OUTPUT_DIR="${LSTM_OUTPUT_DIR}"
-elif [ "$1" == "data" ]; then
-    OUTPUT_DIR="${DATA_OUTPUT_DIR}"
-fi
-
+#if [ "$1" == "lstm" ]; then
+#    OUTPUT_DIR="${LSTM_OUTPUT_DIR}"
+#elif [ "$1" == "data" ]; then
+#    OUTPUT_DIR="${DATA_OUTPUT_DIR}"
+#fi
+#
 # Verify the output directory exists
-if [ ! -d "${OUTPUT_DIR}" ]; then
-    echo "Error: Output directory ${OUTPUT_DIR} does not exist."
-    exit 1
-fi
-
-echo "Contents of the output directory in the container:"
-ls -la "${OUTPUT_DIR}"
-
+#if [ ! -d "${OUTPUT_DIR}" ]; then
+#    echo "Error: Output directory ${OUTPUT_DIR} does not exist."
+#    exit 1
+#fi
+#
+#echo "Contents of the output directory in the container:"
+#ls -la "${OUTPUT_DIR}"
+#
 # Copy the output to the host
-if [ -d "/host/desktop" ]; then
-    TARGET_DIR="/host/desktop/Docker_Output"
-    echo "Desktop mount detected. Copying to: ${TARGET_DIR}"
-elif [ -d "/host/root" ]; then
-    TARGET_DIR="/host/root/output"
-    echo "Root directory mount detected. Copying to: ${TARGET_DIR}"
-else
-    echo "Error: No valid host directory detected. Please map a volume when running the container."
-    exit 1
-fi
-
+#if [ -d "/host/desktop" ]; then
+#    TARGET_DIR="/host/desktop/Docker_Output"
+#    echo "Desktop mount detected. Copying to: ${TARGET_DIR}"
+#elif [ -d "/host/root" ]; then
+#    TARGET_DIR="/host/root/output"
+#    echo "Root directory mount detected. Copying to: ${TARGET_DIR}"
+#else
+#    echo "Error: No valid host directory detected. Please map a volume when running the container."
+#    exit 1
+#fi
+#
 # Create the target directory if it doesn't exist
-mkdir -p "${TARGET_DIR}"
-
+#mkdir -p "${TARGET_DIR}"
+#
 # Copy the files to the target directory
-echo "Copying files from ${OUTPUT_DIR} to ${TARGET_DIR}..."
-cp -r "${OUTPUT_DIR}/" "${TARGET_DIR}/"
-
+#echo "Copying files from ${OUTPUT_DIR} to ${TARGET_DIR}..."
+#cp -r "${OUTPUT_DIR}/" "${TARGET_DIR}/"
+#
 # Verify the files were copied successfully
-if [ "$(ls -A ${TARGET_DIR})" ]; then
-    echo "Output copied successfully to ${TARGET_DIR}"
-else
-    echo "Error: Output copy failed. Destination directory is empty."
-    exit 1
-fi
+#if [ "$(ls -A ${TARGET_DIR})" ]; then
+#    echo "Output copied successfully to ${TARGET_DIR}"
+#else
+#    echo "Error: Output copy failed. Destination directory is empty."
+#    exit 1
+#fi
 
 echo "All operations completed successfully!"
